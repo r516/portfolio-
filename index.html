@@ -17,9 +17,33 @@
 
 	<div class="center-text">
 
-	<h1> Hi, I'm Steve! </h1>
+	<h1> Hi, I'm <span id='home-name'>Steve</span>！</h1>
 	<p> a full stack designer</p>
+	<input type="text" name="myname" id='name-input'>
+	<button id='submit-button'>update</button>
 
 	</div>
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript">
+	$('#submit-button').click (function (){
+		$("#error-message").remove();
+
+		var newName = $('#name-input').val();
+		console.log (newName);
+		
+		if (newName !='') {
+
+			$('#home-name').text(newName);
+			$('#name-input').val(''); 			
+	} else {
+		$('#submit-button').after('<p class="error-message" id="error-message">please validate your input!<p>')
+	}
+
+	})
+		
+
+
+	</script>
+	
 </body>
 </html>
